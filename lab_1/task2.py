@@ -47,6 +47,10 @@ def main():
         write_txt(res, (task2["DECRYPTED"]))
         print(res)
 
+        read = exchange(res, read_json(task2["KEY"]))
+        write_txt(read, (task2["TEXT"]))
+        print(read)
+
 
 if __name__ == "__main__":
     main()
