@@ -1,0 +1,13 @@
+{
+  "ALPHABET": "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ ",
+  "PLANE_TEXT": "plane_text.txt",
+  "KEY_ENCODE": "key_encode.json",
+  "ENCRYPTED": "cod5.txt",
+  "STANDARD": "standard_frequency.json",
+  "REAL_FREQ": "real_freq.json",
+  "DECRYPTED": "decrypted.txt",
+  "KEY_DECODE": "key_decode.json",
+  "KEY": "key_readable.json",
+  "TEXT": "final_text.txt",
+  "RESULT": "encoded.txt"
+}
