@@ -1,7 +1,7 @@
 import json
 
 
-def write_txt(data, filename):
+def write_txt(data, filename) -> None:
     try:
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(data)
@@ -32,7 +32,7 @@ def read_json(filename: str) -> dict[str, str]:
         print(f"error: {e}")
 
 
-def write_json(dictionary, filename):
+def write_json(dictionary, filename) -> None:
     try:
         with open(filename, 'w', encoding='utf-8') as file:
             json.dump(dictionary, file, indent=4, ensure_ascii=False)

@@ -6,5 +6,7 @@
   "STANDARD": "standard_frequency.json",
   "REAL_FREQ": "real_freq.json",
   "DECRYPTED": "decrypted.txt",
-  "KEY_DECODE": "key_decode.json"
+  "KEY": "key.json",
+  "TEXT": "final_text.txt",
+  "RESULT": "encoded.txt"
 }

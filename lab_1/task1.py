@@ -1,7 +1,7 @@
 from work_files import *
 
 
-def vigenere_cipher(text, key, alfavit):
+def vigenere_cipher(text, key, alphabet) -> str:
     text = text.upper()
     key = key["key"]
 
@@ -9,19 +9,14 @@ def vigenere_cipher(text, key, alfavit):
     key_index = 0
 
     for char in text:
-        if char in alfavit:
-            char_pos = alfavit.index(char)
+        if char in alphabet:
+            char_pos = alphabet.index(char)
 
-            key_char_pos = alfavit.index(key[key_index % len(key)])
+            key_char_pos = alphabet.index(key[key_index % len(key)])
 
-            if (char_pos + key_char_pos) < len(alfavit):
-                new_pos = (char_pos + key_char_pos)
-            elif (char_pos + key_char_pos) > len(alfavit):
-                new_pos = (char_pos + key_char_pos) - len(alfavit) + 1
-            else:
-                new_pos = len(alfavit) - 1
+            new_pos = (char_pos + key_char_pos) % len(alphabet)
 
-            encoded_text += alfavit[new_pos]
+            encoded_text += alphabet[new_pos]
 
             key_index += 1
         else:
@@ -31,14 +26,19 @@ def vigenere_cipher(text, key, alfavit):
 
 
 def main():
-    task1 = read_json("settings.json")
-    text = read_txt(task1["PLANE_TEXT"])
-    key = read_json(task1["KEY_ENCODE"])
-    alfavit = task1["ALPHABET"]
-    res = vigenere_cipher(text, key, alfavit)
-    write_txt(res, 'encoded.txt')
-    print(res)
+    try:
+        task1 = read_json("settings.json")
+        text = read_txt(task1["PLANE_TEXT"])
+        key = read_json(task1["KEY_ENCODE"])
+        alphabet = task1["ALPHABET"]
+        res = vigenere_cipher(text, key, alphabet)
+        write_txt(res, task1["RESULT"])
+        print(res)
 
+    except FileNotFoundError:
+        print("Ошибка: Файл не найден.")
+    except Exception as e:
+        print(f"Произошла ошибка: {e}")
 
 if __name__ == "__main__":
     main()
